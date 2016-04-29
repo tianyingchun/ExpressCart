@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{config.cart_title}} - {{title}}</title>
+	    <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="description" content="Powered by ExpressCart">
+		<meta name="keywords" content="ExpressCart">
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/flatly.bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		<link rel="stylesheet" href="/stylesheets/bootstrap-markdown.min.css">
+		<link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+		<script src="/javascripts/jquery-2.1.4.min.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/bootstrap-validator.js"></script>
+		<script src="/javascripts/bootstrap-markdown.js"></script>
+		<script src="/javascripts/ExpressCart.js"></script>
+	</head>
+	<body class="{{show_footer}}">	
+		<!-- Static navbar -->
+	    <nav class="navbar navbar-default navbar-static-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">{{config.cart_title}}</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+                        {{#if session.cart}}
+                            <li><a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge" id="cart-count">{{object_length session.cart}}</span></a></li>
+                            {{else}}
+                            <li><a href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge" id="cart-count">0</span></a></li>
+						{{/if}}
+                        {{#if session.user}}
+							<li><a href="/logout">Logout</a></li>
+						{{/if}}	
+					</ul>
+				</div>
+	      </div>
+	    </nav>	
+		<div class="container-fluid">
+			{{{body}}}
+		</div>
+		<input type="hidden" id="input_notify_message" value="{{message}}">
+		<input type="hidden" id="input_notify_message_type" value="{{message_type}}">
+		<div id="notify_message"></div>
+		{{#if show_footer}}
+			<footer class="footer">
+				<div class="container">
+					<p class="text-muted">Powered by ExpressCart</p>
+				</div>
+			</footer>
+		{{/if}}
+	</body>
+</html>
