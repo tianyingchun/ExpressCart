@@ -3,9 +3,7 @@
 **Alpha release - Please report any bugs**
 
 ExpressCart is a Shopping Cart built with [Nodejs](https://nodejs.org/) and [ExpressJS](http://expressjs.com/). The application uses an embedded database ([nedb](https://github.com/louischatriot/nedb)) for easy installation.
-The application is designed to be easy to use and install and based around search rather than nested categories. Simply search for what you want and select from the results.
-
-ExpressCart uses powerful Lunr.js to index the products to enable the best search results possible.
+The application is designed to be easy to use and install and based around search rather than nested categories. Simply search for what you want and select from the results. ExpressCart uses powerful Lunr.js to index the products to enable the best search results possible.
 
 Demo: [http://cart.mrvautin.com](http://cart.mrvautin.com)
 
@@ -18,6 +16,7 @@ Demo: [http://cart.mrvautin.com](http://cart.mrvautin.com)
 
 ### Features
 
+- **PayPal**: ExpressCart has built in PayPal Express Checkout.
 - **Seach**: ExpressCart is a search based Shopping Cart backed by [Lunr.js](https://github.com/olivernn/lunr.js/) indexing to create the best possible results on searches. 
 - **Backend**: ExpressCart uses the pure javascript [nedb](https://github.com/louischatriot/nedb) embedded database. This means no external databases need to be setup.
 - **Design**: ExpressCart is meant to be simple flat design. 
@@ -44,6 +43,19 @@ A new user form will be shown where a user can be created.
 ### Config
 
 There are are a few configurations that can be made which are held in `/config/default.json`. If any values have been changed the app will need to be restarted.
+
+Paypal details can be obtained by logging into your PayPal account.
+
+- `cart_title` refers to the title shown on  the top of your cart navigation menu. If you would like a logo in it's place you will have to edit the `/views/layouts/layout.hbs`.
+- `number_products_index` refers to the amount of products shown on the homepage of your cart.
+- `base_url` refers to the URL of your cart. **Note: Ensure there is no trailing slash**
+- `flat_shipping` refers to the flat shipping rate if the total card amount is less than the value set in `free_shipping_amount`.
+- `free_shipping_amount` refers to the minimum spend for a customer to receive free shipping. If free shipping is never offered, set this value to something really high. Eg: 9999999.00
+- `paypal_username` refers to the value obtained from your PayPal account login
+- `paypal_password` refers to the value obtained from your PayPal account login
+- `paypal_signature` refers to the value obtained from your PayPal account login
+- `paypal_cart_description` refers to the value shown to the user when redirected to the PayPal payment page
+- `paypal_currency` refers to a valid currency to accept payments. PayPal does the conversion
 
 Example config file
 ```

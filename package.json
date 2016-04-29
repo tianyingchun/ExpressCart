@@ -44,7 +44,10 @@
     "express",
     "nedb",
     "nodejs",
-    "ecommerce"
+    "ecommerce",
+    "paypal",
+    "lunr",
+    "cart"
   ],
   "author": "Mark Moffat",
   "license": "ISC",
