@@ -75,6 +75,9 @@ Example config file
 }
 ```
 
+### Contribute
+Looking for help to develop the software further. There isn't any good Nodejs shopping cart software and ExpressCart could fill the void. Please submit any issues and pull requests to make this better. **Looking for anyone with security experience to cast an eye over and pickup and issues.**
+
 ### TODO
 
 - Email receipts
