@@ -75,3 +75,7 @@ Example config file
 
 Using [PM2](https://github.com/Unitech/pm2) is the easiest and best option for running production websites.
 See the [PM2](https://github.com/Unitech/pm2) for more information or a short guide here: [https://mrvautin.com/running-nodejs-applications-in-production-forever-vs-supervisord-vs-pm2/](https://mrvautin.com/running-nodejs-applications-in-production-forever-vs-supervisord-vs-pm2/).
+
+## License
+
+[The MIT License](https://github.com/mrvautin/Express/tree/master/LICENSE)
