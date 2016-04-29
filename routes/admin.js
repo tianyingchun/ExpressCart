@@ -614,12 +614,12 @@ router.get('/user/delete/:id', common.restrict, function(req, res) {
 		req.db.users.remove({_id: req.params.id}, {}, function (err, numRemoved) {			
 			req.session.message = "User deleted.";
 			req.session.message_type = "success";
-			res.redirect("/users");
+			res.redirect("/admin/users");
 	  	});
 	}else{
 		req.session.message = "Access denied.";
 		req.session.message_type = "danger";
-		res.redirect("/users");
+		res.redirect("/admin/users");
 	}
 });
 
