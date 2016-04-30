@@ -5,14 +5,24 @@
 ExpressCart is a Shopping Cart built with [Nodejs](https://nodejs.org/) and [ExpressJS](http://expressjs.com/). The application uses an embedded database ([nedb](https://github.com/louischatriot/nedb)) for easy installation.
 The application is designed to be easy to use and install and based around search rather than nested categories. Simply search for what you want and select from the results. ExpressCart uses powerful Lunr.js to index the products to enable the best search results possible.
 
-Demo: [http://cart.mrvautin.com](http://cart.mrvautin.com)
+Demo: [http://expresscart.mrvautin.com](http://expresscart.mrvautin.com)
 
 ### Installation
+
+### Git
 
 1. Clone Repository: `git clone https://github.com/mrvautin/ExpressCart.git && cd ExpressCart`
 2. Install dependencies: `npm install`
 3. Start application: `npm start`
 4. Go to  [http://127.0.0.1:7777](http://127.0.0.1:7777) in your browser
+
+### NPM
+1. Install from NPM: `npm install expresscart`
+2. Move folder from `node_modules`: `mv node_modules/expresscart/ ./ExpressCart`
+3. Enter folder: `cd ExpressCart`
+4. Install dependencies: `npm install`
+5. Start application: `npm start`
+6. Visit [http://127.0.0.1:7777](http://127.0.0.1:7777) in your browser
 
 ### Features
 
