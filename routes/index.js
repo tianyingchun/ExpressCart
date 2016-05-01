@@ -442,6 +442,34 @@ router.get('/export', restrict, function(req, res) {
 	});
 });
 
+//return sitemap
+router.get('/sitemap.xml', function(req, res, next) { 
+    var sm = require('sitemap');
+    
+    common.add_products(req, res, function (err, products){
+        var sitemap = sm.createSitemap (
+        {
+            hostname: req.config.get('application').base_url,
+            cacheTime: 600000,        // 600 sec - cache purge period 
+            urls: [
+                { url: '/', changefreq: 'weekly', priority: 1.0 }
+            ]
+        });
+
+        var current_urls = sitemap.urls;
+        var merged_urls = current_urls.concat(products);
+        sitemap.urls = merged_urls;
+        // render the sitemap
+        sitemap.toXML( function (err, xml) {
+            if (err) {
+                return res.status(500).end();
+            }
+            res.header('Content-Type', 'application/xml');
+            res.send(xml);
+        });
+    });
+});
+
 function clear_session_value(session, session_var){
 	var temp = session[session_var];
 	session[session_var] = null;

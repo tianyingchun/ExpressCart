@@ -576,7 +576,6 @@ router.post('/user/insert', common.restrict, function(req, res) {
                     
                     // if from setup we add user to session and redirect to login.
                     // Otherwise we show users screen
-                    console.log(url_parts.path);
                     if(url_parts.path == "/setup"){
                         req.session.user = req.body.user_email;
                         res.redirect('/login');

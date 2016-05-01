@@ -14,8 +14,29 @@ exports.check_login = function(req, res, next){
 	}
 };
 
+exports.add_products = function(req, res, cb){
+    var async = require('async');
+    var hostname = req.config.get('application').base_url;
+    req.db.products.find({product_published:'true'}).exec(function (err, products) {
+        var posts = [];
+        async.eachSeries(products, function iteratee(item, callback) {
+            var post = {};
+            var url = item._id;
+            if(item.product_permalink){
+                url = item.product_permalink;
+            }
+            post.url = hostname + "/" + url;
+            post.changefreq = 'weekly';
+            post.priority = 0.7;
+            posts.push(post);
+            callback(null, posts);
+        }, function done() {
+            cb(null, posts);
+        });
+    });
+}
+
 exports.restrict = function(req, res, next){
-    console.log(res.session);
 	exports.check_login(req, res, next);
 };
 
@@ -39,12 +60,9 @@ exports.update_total_cart_amount = function(req, res){
     if(req.session.total_cart_amount < config.free_shipping_amount){
         req.session.total_cart_amount = req.session.total_cart_amount + config.flat_shipping;
         req.session.shipping_cost_applied = true;
-        console.log(req.session.shipping_cost_applied);
     }else{
         req.session.shipping_cost_applied = false;
     }
-    
-    console.log(req.session.total_cart_amount);
 };
 
 exports.check_directory_sync = function (directory) {  
@@ -101,7 +119,7 @@ exports.order_with_paypal = function(req, res){
     // place the order with PayPal
     paypal.pay(req.session.order_id, req.session.total_cart_amount, config.paypal_cart_description, config.paypal_currency, true, function(err, url) {
         if (err) {
-            console.log(err);
+            console.error(err);
             // We have an error so we show the checkout with a message
             res.render('checkout_return', { 
                 title: "Checkout", 
