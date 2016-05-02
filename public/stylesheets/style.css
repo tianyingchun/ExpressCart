@@ -223,19 +223,6 @@ html{
     color: white;
 }
 
-.notify_message-success{
-    background-color: #18bc9c;
-}
-
-.notify_message-danger{
-    background-color: #e74c3c;
-}
-
-.popover-title{
-    background-color: #e74c3c;
-    color: white;
-}
-
 .footer {
     position: absolute;
     bottom: 0;

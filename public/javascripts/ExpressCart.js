@@ -263,7 +263,7 @@ function show_notification(msg, type, reload_page){
     reload_page = reload_page || false;
    
     $("#notify_message").removeClass();
-    $("#notify_message").addClass('notify_message-' + type);
+    $("#notify_message").addClass('alert-' + type);
     $("#notify_message").html(msg);
     $('#notify_message').slideDown(600).delay(1200).slideUp(600, function() {
         if(reload_page == true){
