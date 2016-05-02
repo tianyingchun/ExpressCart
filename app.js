@@ -134,7 +134,7 @@ handlebars = handlebars.create({
         },       
         format_date: function (date, format) {
             return moment(date).format(format);
-        },       
+        },         
         ifCond: function (v1, operator, v2, options) {
 			switch (operator) {
 				case '==':

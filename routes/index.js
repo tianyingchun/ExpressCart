@@ -9,12 +9,13 @@ router.get('/', function(req, res, next) {
 	req.db.products.find({product_published:'true'}).limit(number_products).exec(function (err, results) {
  		res.render('index', { 
 			 title: 'Shop', 
-			 "results": results, 
+			 results: results, 
 			 session: req.session,
 			 message: clear_session_value(req.session, "message"),
 			 message_type: clear_session_value(req.session, "message_type"),
 			 config: req.config.get('application'),
 			 helpers: req.handlebars.helpers,
+             page_url: req.config.get('application').base_url,
 			 show_footer: "show_footer"
 		});
 	});
@@ -245,7 +246,7 @@ router.get('/product/:id', function(req, res) {
                     product_description: markdownit.render(result.product_description),
                     config: req.config.get('application'),
                     session: req.session,
-                    current_url: req.protocol + '://' + req.get('host'),
+                    page_url: req.config.get('application').base_url + req.originalUrl,
                     message: clear_session_value(req.session, "message"),
                     message_type: clear_session_value(req.session, "message_type"),
                     helpers: req.handlebars.helpers,

@@ -17,6 +17,26 @@
         <script src="/javascripts/bootstrap-validator.js"></script>
 		<script src="/javascripts/bootstrap-markdown.js"></script>
 		<script src="/javascripts/ExpressCart.js"></script>
+        <!-- SEO data -->
+        <link rel="canonical" href="{{config.base_url}}" />
+        <meta name="referrer" content="origin" />
+        
+        <meta property="og:site_name" content="{{config.cart_title}}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{title}}" />
+        <meta property="og:url" content="{{page_url}}" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="{{title}}" />
+        <meta name="twitter:url" content="{{page_url}}" />
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Website",
+                "publisher": "{{config.cart_title}}",
+                "url": "{{config.base_url}}"
+            }
+        </script>
+        <!-- SEO data -->
 	</head>
 	<body class="{{show_footer}}">	
 		<!-- Static navbar -->
