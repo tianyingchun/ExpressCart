@@ -59,6 +59,10 @@ html{
     vertical-align: middle;
 }
 
+.thumbnail{
+    min-height: 415px;
+}
+
 .vertical-center {
     display: flex;
     align-items: center;
@@ -80,8 +84,22 @@ html{
 }
 
 .product-title{
+    font-size: 20px;
     padding-bottom: 10px;
     margin-top: 0px;
+    max-height: 86px;
+    min-height: 86px;
+}
+
+.product-title-home{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .product-price{

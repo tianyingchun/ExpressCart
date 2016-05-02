@@ -30,18 +30,20 @@
                 <div class="col-md-3">
                     <div class="thumbnail">
                         {{#if product_permalink}}
-                            <a href="/product/{{this.product_permalink}}">
-                                <div class="vertical-center thumbnail-image-container">
-                                    {{#if product_image}}
-                                        <img class="img-responsive" src="{{this.product_image}}" alt="...">
-                                    {{else}}
-                                        <img class="img-responsive" src="/uploads/placeholder.png" alt="...">
-                                    {{/if}}
-                                </div>
-                                <h3 class="product-title top-pad-10 text-center">
-                                    {{this.product_title}}
-                                </h3>
-                            </a>
+                            <div class="product_wrapper">
+                                <a href="/product/{{this.product_permalink}}">
+                                    <div class="vertical-center thumbnail-image-container">
+                                        {{#if product_image}}
+                                            <img class="img-responsive" src="{{this.product_image}}" alt="...">
+                                        {{else}}
+                                            <img class="img-responsive" src="/uploads/placeholder.png" alt="...">
+                                        {{/if}}
+                                    </div>
+                                    <h3 class="product-title product-title-home top-pad-10">
+                                        {{this.product_title}}
+                                    </h3>
+                                </a>
+                            </div>
                         {{else}}                     
                             <a href="/product/{{this._id}}">
                                 <div class="vertical-center thumbnail-image-container">
@@ -51,7 +53,7 @@
                                         <img class="img-responsive" src="/uploads/placeholder.png" alt="...">
                                     {{/if}}
                                 </div>
-                                <h3 class="product-title top-pad-10 text-center">
+                                <h3 class="product-title product-title-home top-pad-10">
                                     {{this.product_title}}
                                 </h3>
                             </a>

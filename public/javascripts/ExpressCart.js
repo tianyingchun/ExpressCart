@@ -4,6 +4,10 @@ $(document).ready(function() {
 	$('table').each(function(){
 		$(this).addClass("table table-hover")
 	});
+    
+    $(".product-title").dotdotdot({
+        ellipsis: '...'
+	});
 	
 	// Call to API for a change to the published state of a product
 	$("input[class='published_state']").change(function() {
