@@ -121,7 +121,7 @@ exports.order_with_paypal = function(req, res){
         if (err) {
             console.error(err);
             // We have an error so we show the checkout with a message
-            res.render('checkout_return', { 
+            res.render('checkout', { 
                 title: "Checkout", 
                 session: req.session,
                 payment_approved: "false",
