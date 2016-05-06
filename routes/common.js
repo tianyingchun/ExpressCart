@@ -123,6 +123,7 @@ exports.order_with_paypal = function(req, res){
             // We have an error so we show the checkout with a message
             res.render('checkout', { 
                 title: "Checkout", 
+                config: req.config.get('application'),
                 session: req.session,
                 payment_approved: "false",
                 payment_message: err,
