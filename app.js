@@ -37,12 +37,12 @@ var orders_index = lunr(function () {
 // index all products in lunr on startup
 db.products.find({}, function (err, products_list) {
     // add to lunr index
-    products_list.forEach(function(product) {     
+    products_list.forEach(function(product) {
         var doc = {
             "product_title": product.product_title,
             "product_description": product.product_description,
             "id": product._id
-        };        
+        };
         products_index.add(doc);
     });
 });
@@ -50,13 +50,13 @@ db.products.find({}, function (err, products_list) {
 // index all products in lunr on startup
 db.orders.find({}, function (err, orders_list) {
     // add to lunr index
-    orders_list.forEach(function(order) {     
+    orders_list.forEach(function(order) {
         var doc = {
             "order_lastname": order.order_lastname,
             "order_email": order.order_email,
             "order_postcode": order.order_postcode,
             "id": order._id
-        };        
+        };
         orders_index.add(doc);
     });
 });
@@ -77,10 +77,10 @@ handlebars = handlebars.create({
         'views/partials/'
     ],
     helpers: {
-        split_keywords: function (keywords) { 
+        split_keywords: function (keywords) {
             if(keywords){
                 var array = keywords.split(','); var links = "";
-                for (var i = 0; i < array.length; i++) { 
+                for (var i = 0; i < array.length; i++) {
                     if(array[i].trim() != ""){
                         links += "<a href='/search/"+array[i].trim() +"'>"+array[i].trim() +"</a>&nbsp;|&nbsp;";
                     }
@@ -88,10 +88,10 @@ handlebars = handlebars.create({
             }else{
                 return keywords;
             }
-        },  
+        },
         format_amount: function (amt) {
             return numeral(amt).format('$0.00');
-        }, 
+        },
         get_status_color: function (status){
             switch (status) {
                 case "Completed":
@@ -106,35 +106,35 @@ handlebars = handlebars.create({
                 case "Pending - Reason: echeck":
                     return "warning";
                     break;
-                default: 
+                default:
                     return "danger";
                 }
         },
         object_length: function(obj) {
             return Object.keys(obj).length;
         },
-        checked_state: function (state) { 
+        checked_state: function (state) {
             if(state == "true"){
                 return "checked"
                 }else{return "";
             }
-        }, 
-        select_state: function (state, value) { 
+        },
+        select_state: function (state, value) {
             if(state == value){
                 return "selected"
                 }else{return "";
             }
-        }, 
+        },
         view_count: function (value) {
             if(value == "" || value == undefined){
                 return "0";
             }else{
                 return value;
             }
-        },       
+        },
         format_date: function (date, format) {
             return moment(date).format(format);
-        },         
+        },
         ifCond: function (v1, operator, v2, options) {
 			switch (operator) {
 				case '==':
@@ -171,7 +171,7 @@ handlebars = handlebars.create({
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.enable('trust proxy')
-app.set('port', process.env.PORT || 7777);
+app.set('port', process.env.PORT || 8080);
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
